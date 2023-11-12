@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define N 3
+#define N 5
 #define M 4
 
 int process(int n, int m, int matrix [M][N], int result)
