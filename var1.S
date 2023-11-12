@@ -1,13 +1,13 @@
 .data
 N:
-.word 3
+.word 5
 M:
 .word 4
 matrix:
-.word 10, 11, 12
-.word 2, 21, 22
-.word 3, 1, 31
-.word 41, 44, 4
+.word 10, 11, 12, 11, 22
+.word 2, 21, 22, 100, 6
+.word 3, 1, 31, 12, 15
+.word 41, 44, 4, 17, 18
 result:
 .word 0
 
