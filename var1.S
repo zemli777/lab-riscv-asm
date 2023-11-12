@@ -28,18 +28,10 @@ print:
 lw t1, 0(a2)
 
 addi t2, x0, 0  # addi  
-print_cycle:
 addi a0, x0, 1 # print_int ecall
 lw a1, 0(a3)
 ecall
 
-addi a0, x0, 11 # print_char ecall
-addi a1, x0, 32
-ecall
-
-addi t2, t2, 1
-addi a3, a3, 4
-blt t2, t1, print_cycle
 ret
 
 exit:
