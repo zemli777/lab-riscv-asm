@@ -1,16 +1,4 @@
-.PHONY: clean
+build:
 
-dump_name=var1.dump
-executable_name=var1.elf
-
-default: $(dump_name) $(executable_name)
-
-%.elf : %.c
-	@riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 $< -o $@
-
-%.dump: %.elf
-	@riscv64-unknown-elf-objdump -D $< > $@
-
-clean:
-	@rm -f $(dump_name)
-	@rm -f $(executable_name)
+	riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 var1.c -o var2.elf
+	riscv64-unknown-elf-objdump -D var2.elf  > var2.dump
