@@ -21,8 +21,7 @@
 
 ```
 PATH=/home/schemotechnik/riscv-gcc-10.2.0-gbbc9263-210318T1412/bin:$PATH 
-riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 var1.c -o var1.elf
-riscv64-unknown-elf-objdump -D var1.elf  > var1.dump
+make
 ```
 
 
