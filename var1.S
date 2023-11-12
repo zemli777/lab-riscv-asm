@@ -4,20 +4,17 @@ N:
 M:
 .word 4
 matrix:
-.word 1, 1, 1
-.word 2, 2, 2
-.word 3, 3, 3
-.word 4, 4, 4
+.word 10, 11, 12
+.word 2, 21, 22
+.word 3, 1, 31
+.word 41, 44, 4
 result:
-.word 0
-.word 0
-.word 0
 .word 0
 
 .text
 
 main:
-la a2, N
+la a2, N # la - загрузка адерса  
 la a3, M
 la a4, matrix
 la a5, result
@@ -30,7 +27,7 @@ call exit
 print:
 lw t1, 0(a2)
 
-addi t2, x0, 0
+addi t2, x0, 0  # addi  
 print_cycle:
 addi a0, x0, 1 # print_int ecall
 lw a1, 0(a3)
@@ -54,19 +51,24 @@ lw t1, 0(a2) # N
 lw t2, 0(a3) # M
 
 addi t4, x0, 0 # row pointer
+lw t5,  0(a4) # запишем первое значение матрицы как наименьшее
+
 
 init:
-addi t5, x0, 0 # result to save
 addi t3, x0, 0 # row element number
 
 cycle:
 lw t6, 0(a4) # load value from array
 addi a4, a4, 4 # increment array pointer
-add t5, t5, t6 # count sum
+ble t5, t6, if2  #if t5>t6 go to if2
+mv t5,t6         #else t5 = t6 
+if2:
 addi t3, t3, 1
 blt t3, t1, cycle
+
 sw t5, 0(a5) # save result to resulting array
-addi a5, a5, 4
+
+
 addi t4, t4, 1
 blt t4, t2, init
 ret
